@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: both-pod
+spec:
+  containers:
+  - name: my-container
+    image: alpine:latest
+    command: 
+      - "sleep"
+      - "604800"  
+    volumeMounts:
+    - mountPath: /root
+      name: root-volume
+  volumes:
+  - name: root-volume
+    hostPath:
+      path: /
+  hostNetwork: true 
